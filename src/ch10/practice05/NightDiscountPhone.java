@@ -2,14 +2,15 @@ package ch10.practice05;
 
 import java.time.Duration;
 
-class NightDiscountPhone extends AbstractPhone{
+class NightDiscountPhone extends Phone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
     private Money regularAmount;
     private Duration seconds;
 
-    public NightDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds) {
+    public NightDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds, double taxRate) {
+        super(taxRate);
         this.nightlyAmount = nightlyAmount;
         this.regularAmount = regularAmount;
         this.seconds = seconds;
