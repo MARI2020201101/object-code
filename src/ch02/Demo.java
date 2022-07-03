@@ -34,5 +34,18 @@ class Demo {
                 Duration.ofMinutes(130),
                 new NoneDiscountPolicy(),
                 Money.wons(11000));
+
+        Movie topGun = new Movie("탑건",
+                Duration.ofMinutes(105),
+                new OverlappedDiscountPolicy(
+                        new PercentDiscountPolicy(0.2,
+                                new PeriodCondition(DayOfWeek.TUESDAY, LocalTime.of(14,0),LocalTime.of(16,59))),
+                        new AmountDiscountPolicy(Money.wons(1000),
+                                new SequenceCondition(1000))),
+                Money.wons(10500));
+
+        Money avatarFee = new Client(new Factory()).getAvatarFee();
+
+
     }
 }

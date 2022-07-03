@@ -58,3 +58,18 @@ class NoneDiscountPolicy implements DiscountPolicy{
         return Money.ZERO;
     }
 }
+
+class OverlappedDiscountPolicy extends DefaultDiscountPolicy{
+    private List<DiscountPolicy> discountPolicies = new ArrayList<>();
+    public OverlappedDiscountPolicy(DiscountPolicy ...discountPolicies) {
+        this.discountPolicies.addAll(Arrays.asList(discountPolicies));
+    }
+    @Override
+    public Money getDiscountAmount(Screening screening) {
+        Money result = Money.ZERO;
+        for(DiscountPolicy each : discountPolicies){
+            result = result.plus(each.calculateDiscountAmount(screening));
+        }
+        return result;
+    }
+}
