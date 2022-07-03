@@ -1,9 +1,7 @@
 package ch02;
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDateTime;
 
 interface DiscountCondition {
     boolean isSatisfiedBy(Screening screening);
