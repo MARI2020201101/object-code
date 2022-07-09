@@ -52,5 +52,20 @@ class Demo {
         System.out.println(lecture.stats());
         System.out.println(gradeLecture.stats());
 
+        FormattedGradeLecture formattedGradeLecture = new FormattedGradeLecture(
+                70,
+                "design pattern",
+                Arrays.asList(
+                        new Grade("A",100,95),
+                        new Grade("B",94,80),
+                        new Grade("C",79,70),
+                        new Grade("D",69,50),
+                        new Grade("F",49,0)
+                ),
+                Arrays.asList(10, 76, 44, 98, 88, 92, 52, 100, 33, 89)
+        );
+        System.out.println("----------------------------------------------------");
+        String formatAverage = formattedGradeLecture.formatAverage();
+        System.out.println(formatAverage);
     }
 }
